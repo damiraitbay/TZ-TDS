@@ -24,7 +24,7 @@ const UserForm = ({ onSubmit, initialData, isLoading }: UserFormProps) => {
     },
   });
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove } = useFieldArray<UserFormData, 'skills'>({
     control,
     name: 'skills',
   });
