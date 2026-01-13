@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
+import type { FieldArrayPath, Control } from 'react-hook-form';
 import { UserFormData } from '../types/user';
 
 interface UserFormProps {
@@ -24,9 +25,9 @@ const UserForm = ({ onSubmit, initialData, isLoading }: UserFormProps) => {
     },
   });
 
-  const { fields, append, remove } = useFieldArray<UserFormData, 'skills'>({
-    control,
-    name: 'skills',
+  const { fields, append, remove } = useFieldArray({
+    control: control as Control<UserFormData>,
+    name: 'skills' as FieldArrayPath<UserFormData>,
   });
 
   useEffect(() => {
