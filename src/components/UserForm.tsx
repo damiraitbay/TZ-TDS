@@ -37,8 +37,8 @@ const UserForm = ({ onSubmit, initialData, isLoading }: UserFormProps) => {
   }, [initialData, reset]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-sm rounded-lg p-6">
-      <div className="space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-sm rounded-lg p-4 sm:p-6">
+      <div className="space-y-4 sm:space-y-6">
         <div>
           <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
             Имя <span className="text-red-500">*</span>
@@ -53,10 +53,10 @@ const UserForm = ({ onSubmit, initialData, isLoading }: UserFormProps) => {
                 message: 'Имя должно содержать минимум 2 символа',
               },
             })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm px-3 py-2 border"
           />
           {errors.firstName && (
-            <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>
+            <p className="mt-1 text-xs sm:text-sm text-red-600">{errors.firstName.message}</p>
           )}
         </div>
 
@@ -74,10 +74,10 @@ const UserForm = ({ onSubmit, initialData, isLoading }: UserFormProps) => {
                 message: 'Фамилия должна содержать минимум 2 символа',
               },
             })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm px-3 py-2 border"
           />
           {errors.lastName && (
-            <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>
+            <p className="mt-1 text-xs sm:text-sm text-red-600">{errors.lastName.message}</p>
           )}
         </div>
 
@@ -95,10 +95,10 @@ const UserForm = ({ onSubmit, initialData, isLoading }: UserFormProps) => {
                 message: 'Некорректный формат email',
               },
             })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm px-3 py-2 border"
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+            <p className="mt-1 text-xs sm:text-sm text-red-600">{errors.email.message}</p>
           )}
         </div>
 
@@ -112,16 +112,17 @@ const UserForm = ({ onSubmit, initialData, isLoading }: UserFormProps) => {
                 <input
                   type="text"
                   {...register(`skills.${index}` as const)}
-                  className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
+                  className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm px-3 py-2 border"
                   placeholder="Введите навык"
                 />
                 {fields.length > 1 && (
                   <button
                     type="button"
                     onClick={() => remove(index)}
-                    className="px-3 py-2 text-sm font-medium text-red-600 hover:text-red-800"
+                    className="px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium text-red-600 hover:text-red-800 whitespace-nowrap"
                   >
-                    Удалить
+                    <span className="hidden sm:inline">Удалить</span>
+                    <span className="sm:hidden">✕</span>
                   </button>
                 )}
               </div>
@@ -136,18 +137,18 @@ const UserForm = ({ onSubmit, initialData, isLoading }: UserFormProps) => {
           </div>
         </div>
 
-        <div className="flex justify-end space-x-3 pt-4">
+        <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3 pt-4">
           <button
             type="button"
             onClick={() => window.history.back()}
-            className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+            className="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
           >
             Отмена
           </button>
           <button
             type="submit"
             disabled={isLoading}
-            className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
+            className="w-full sm:w-auto px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
           >
             {isLoading ? 'Сохранение...' : 'Сохранить'}
           </button>

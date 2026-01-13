@@ -47,8 +47,8 @@ const UserListPage = () => {
 
   return (
     <div>
-      <div className="mb-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900">Список пользователей</h1>
+      <div className="mb-4 sm:mb-6 flex justify-between items-center">
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Список пользователей</h1>
       </div>
       <UserTable
         users={users}

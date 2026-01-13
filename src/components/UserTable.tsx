@@ -101,7 +101,7 @@ const UserTable = ({
           <thead className="bg-gray-50">
             <tr>
               <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                className="px-3 sm:px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                 onClick={() => onSort('id')}
               >
                 <div className="flex items-center space-x-1">
@@ -110,7 +110,7 @@ const UserTable = ({
                 </div>
               </th>
               <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                className="px-3 sm:px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                 onClick={() => onSort('firstName')}
               >
                 <div className="flex items-center space-x-1">
@@ -119,7 +119,7 @@ const UserTable = ({
                 </div>
               </th>
               <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                className="px-3 sm:px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                 onClick={() => onSort('lastName')}
               >
                 <div className="flex items-center space-x-1">
@@ -128,7 +128,7 @@ const UserTable = ({
                 </div>
               </th>
               <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                className="px-3 sm:px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                 onClick={() => onSort('email')}
               >
                 <div className="flex items-center space-x-1">
@@ -136,11 +136,11 @@ const UserTable = ({
                   <SortIcon field="email" />
                 </div>
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-3 sm:px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Навыки
               </th>
               <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                className="px-3 sm:px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                 onClick={() => onSort('registrationDate')}
               >
                 <div className="flex items-center space-x-1">
@@ -148,7 +148,7 @@ const UserTable = ({
                   <SortIcon field="registrationDate" />
                 </div>
               </th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-3 sm:px-4 lg:px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Действия
               </th>
             </tr>
@@ -156,19 +156,19 @@ const UserTable = ({
           <tbody className="bg-white divide-y divide-gray-200">
             {paginatedUsers.map((user) => (
               <tr key={user.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-3 sm:px-4 lg:px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {user.id}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-3 sm:px-4 lg:px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {user.firstName}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-3 sm:px-4 lg:px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   {user.lastName}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-3 sm:px-4 lg:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {user.email}
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-500">
+                <td className="px-3 sm:px-4 lg:px-6 py-4 text-sm text-gray-500">
                   <div className="flex flex-wrap gap-1">
                     {user.skills.map((skill, index) => (
                       <span
@@ -180,10 +180,10 @@ const UserTable = ({
                     ))}
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-3 sm:px-4 lg:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {format(new Date(user.registrationDate), 'dd.MM.yyyy')}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <td className="px-3 sm:px-4 lg:px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <div className="flex justify-end space-x-2">
                     <Link
                       to={`/users/${user.id}/edit`}
@@ -207,24 +207,29 @@ const UserTable = ({
       </div>
 
       {totalPages > 1 && (
-        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-          <div className="flex-1 flex justify-between sm:hidden">
+        <div className="bg-white px-3 sm:px-4 lg:px-6 py-3 flex items-center justify-between border-t border-gray-200">
+          <div className="flex-1 flex justify-between md:hidden">
             <button
               onClick={() => onPageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
+              className="relative inline-flex items-center px-3 py-2 border border-gray-300 text-xs sm:text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
             >
-              Предыдущая
+              ← Назад
             </button>
+            <div className="flex items-center px-2">
+              <span className="text-xs sm:text-sm text-gray-700">
+                Страница <span className="font-medium">{currentPage}</span> из <span className="font-medium">{totalPages}</span>
+              </span>
+            </div>
             <button
               onClick={() => onPageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
+              className="relative inline-flex items-center px-3 py-2 border border-gray-300 text-xs sm:text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
             >
-              Следующая
+              Вперед →
             </button>
           </div>
-          <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+          <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
             <div>
               <p className="text-sm text-gray-700">
                 Показано <span className="font-medium">{startIndex + 1}</span> -{' '}
@@ -247,7 +252,7 @@ const UserTable = ({
                   <button
                     key={page}
                     onClick={() => onPageChange(page)}
-                    className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                    className={`relative inline-flex items-center px-3 py-2 border text-sm font-medium ${
                       page === currentPage
                         ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
                         : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'

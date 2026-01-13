@@ -77,8 +77,18 @@ const UserFormPage = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">
-        {isEditMode ? 'Редактирование пользователя' : 'Добавление нового пользователя'}
+      <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+        {isEditMode ? (
+          <>
+            <span className="hidden sm:inline">Редактирование пользователя</span>
+            <span className="sm:hidden">Редактирование</span>
+          </>
+        ) : (
+          <>
+            <span className="hidden sm:inline">Добавление нового пользователя</span>
+            <span className="sm:hidden">Новый пользователь</span>
+          </>
+        )}
       </h1>
       <UserForm
         onSubmit={handleSubmit}
